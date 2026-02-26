@@ -1,0 +1,10 @@
+# Ignore artifacts:
+build
+coverage
+node_modules
+.gitignore
+pnpm-lock.yaml
+pnpm-workspace.yaml
+README.md
+pnpm-cheat-sheet.md
+
