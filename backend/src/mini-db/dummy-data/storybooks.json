@@ -1,7 +1,7 @@
-[
-  {
+{
+  "story_a": {
     "meta": {
-      "storyId": "story_a",
+      "id": "story_a",
       "title": "The Augmented Train",
       "author": "story-engine",
       "version": "1.0",
@@ -104,7 +104,7 @@
       }
     }
   },
-  {
+  "story_b": {
     "meta": {
       "id": "story_b",
       "title": "The Dinosaur Jungle",
@@ -209,7 +209,7 @@
       }
     }
   },
-  {
+  "story_c": {
     "meta": {
       "id": "story_c",
       "title": "The Robot Workshop",
@@ -314,7 +314,7 @@
       }
     }
   },
-  {
+  "story_d": {
     "meta": {
       "id": "story_d",
       "title": "The Future Company",
@@ -419,4 +419,4 @@
       }
     }
   }
-]
+}
