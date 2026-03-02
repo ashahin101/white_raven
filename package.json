@@ -1,42 +1,47 @@
 {
   "name": "white_raven",
+  "author": "a.shahin",
   "version": "1.0.0",
   "description": "Dynamic fiction story engine.",
-  "main": "index.js",
   "private": true,
+  "main": "index.js",
+  "type": "module",
+  "packageManager": "pnpm@10.30.3",
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "dev:backend": "pnpm --filter backend run dev",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ashahin101/white_raven.git"
-  },
-  "keywords": [],
-  "author": "a.shahin",
-  "license": "ISC",
-  "packageManager": "pnpm@10.30.3",
-  "bugs": {
-    "url": "https://github.com/ashahin101/white_raven/issues"
-  },
-  "homepage": "https://github.com/ashahin101/white_raven#readme",
   "devDependencies": {
     "@eslint/css": "^0.14.1",
     "@eslint/json": "^1.0.1",
+    "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@typescript-eslint/parser": "^8.56.1",
     "eslint": "^10.0.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "globals": "^17.3.0",
+    "jest": "^30.2.0",
     "prettier": "^3.8.1",
+    "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1"
   },
   "dependencies": {
+    "@jest/globals": "^30.2.0",
     "zod": "^4.3.6"
-  }
+  },
+  "homepage": "https://github.com/ashahin101/white_raven#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashahin101/white_raven.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ashahin101/white_raven/issues"
+  },
+  "keywords": [],
+  "license": "ISC"
 }

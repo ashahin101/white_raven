@@ -3,14 +3,11 @@
   "compilerOptions": {
     "target": "ES2022",
     "allowSyntheticDefaultImports": true,
-    "strict": true,
     "module": "node16",
-    "rootDir": "./src",
+    "rootDir": "../",
     "outDir": "dist",
-    "esModuleInterop": true,
     "moduleResolution": "Node16",
-    "composite": true,
-    "resolveJsonModule": true
+    "composite": true
   },
   "references": [{ "path": "../packages/shared" }],
   "files": ["src/mini-db/dummy-data/stories_trees.json"]

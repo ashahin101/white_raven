@@ -3,9 +3,11 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
+    "isolatedModules": true,
     "module": "ESNext",
     "strict": true,
     "skipLibCheck": true,
-    "target": "ES2022"
+    "target": "ES2022",
+    "resolveJsonModule": true
   }
 }

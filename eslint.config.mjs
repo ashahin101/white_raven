@@ -20,7 +20,7 @@ export default defineConfig([
     extends: ['json/recommended'],
   },
   {
-    files: ['**/*config.json'],
+    files: ['**/*config.json', '**/**/package.json'],
     plugins: { json },
     language: 'json/jsonc',
     // Reference the actual object from your import, not a string
