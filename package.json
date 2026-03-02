@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "dev:backend": "pnpm --filter backend run dev",
+    "dev:frontend": "pnpm --filter frontend run dev",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint"
   },
@@ -31,7 +32,9 @@
     "typescript-eslint": "^8.56.1"
   },
   "dependencies": {
+    "@eslint/js": "^9.39.3",
     "@jest/globals": "^30.2.0",
+    "@types/node": "^24.11.0",
     "zod": "^4.3.6"
   },
   "homepage": "https://github.com/ashahin101/white_raven#readme",
