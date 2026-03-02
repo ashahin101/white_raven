@@ -1,15 +1,16 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/server.ts",
+    "dev": "nodemon ./src/Server.ts",
     "build": "tsc",
-    "start": "ts-node ./src/server.ts",
+    "start": "ts-node ./src/Server.ts",
     "test": "set NODE_OPTIONS=--experimental-vm-modules && jest",
     "test:watch": "set NODE_OPTIONS=--experimental-vm-modules && jest --watch"
   },
   "dependencies": {
+    "@shared": "workspace:*",
     "express": "^5.2.1"
   },
   "devDependencies": {
