@@ -18,6 +18,7 @@
         "scenery": "public/images/trains.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "E",
             "storyChoice": "Enter the train with many people in it",
             "scenery": "",
@@ -25,6 +26,7 @@
             "conclusion": ""
           },
           "B": {
+            "key": "B",
             "value": "I",
             "storyChoice": "Enter the nearly empty train",
             "scenery": "",
@@ -41,6 +43,7 @@
         "scenery": "public/images/trains.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "E",
             "storyChoice": "Start answering their questions",
             "scenery": "",
@@ -48,6 +51,7 @@
             "conclusion": "END"
           },
           "B": {
+            "key": "B",
             "value": "I",
             "storyChoice": "Ignore them and work alone",
             "scenery": "",
@@ -64,6 +68,7 @@
         "scenery": "",
         "options": {
           "A": {
+            "key": "A",
             "value": "I",
             "storyChoice": "Don’t talk to the man",
             "scenery": "",
@@ -71,6 +76,7 @@
             "conclusion": "END"
           },
           "B": {
+            "key": "B",
             "value": "E",
             "storyChoice": "Talk to the man",
             "scenery": "",
@@ -87,6 +93,7 @@
         "scenery": "public/images/trains.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "E",
             "storyChoice": "Let them help",
             "scenery": "",
@@ -94,6 +101,7 @@
             "conclusion": "END"
           },
           "B": {
+            "key": "B",
             "value": "I",
             "storyChoice": "Tell them you can do it alone",
             "scenery": "",
@@ -123,6 +131,7 @@
         "scenery": "public/images/dinosaur-jungle.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "P",
             "storyChoice": "Explore the jungle",
             "scenery": "",
@@ -130,6 +139,7 @@
             "conclusion": ""
           },
           "B": {
+            "key": "B",
             "value": "J",
             "storyChoice": "Head directly to the portal",
             "scenery": "",
@@ -146,6 +156,7 @@
         "scenery": "public/images/dinosaur-jungle.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "P",
             "storyChoice": "Take the longer, safer route",
             "scenery": "",
@@ -153,6 +164,7 @@
             "conclusion": "END"
           },
           "B": {
+            "key": "B",
             "value": "J",
             "storyChoice": "Walk quickly through the marked path",
             "scenery": "",
@@ -169,6 +181,7 @@
         "scenery": "public/images/dinosaur-jungle.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "P",
             "storyChoice": "Dive through the portal immediately",
             "scenery": "",
@@ -176,6 +189,7 @@
             "conclusion": "END"
           },
           "B": {
+            "key": "B",
             "value": "J",
             "storyChoice": "Stop and look back",
             "scenery": "",
@@ -192,6 +206,7 @@
         "scenery": "public/images/dinosaur-jungle.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "J",
             "storyChoice": "Wait for the portal to stabilize",
             "scenery": "",
@@ -199,6 +214,7 @@
             "conclusion": "GOOD ENDING"
           },
           "B": {
+            "key": "B",
             "value": "P",
             "storyChoice": "Jump in immediately",
             "scenery": "",
@@ -228,6 +244,7 @@
         "scenery": "public/images/robot-machine.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "N",
             "storyChoice": "Give the robot a friendly, conversational personality",
             "scenery": "",
@@ -235,6 +252,7 @@
             "conclusion": ""
           },
           "B": {
+            "key": "B",
             "value": "S",
             "storyChoice": "Give the robot a focused, practical personality",
             "scenery": "",
@@ -251,6 +269,7 @@
         "scenery": "public/images/robot-machine.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "N",
             "storyChoice": "Let it adapt and switch tasks freely",
             "scenery": "",
@@ -258,6 +277,7 @@
             "conclusion": "END"
           },
           "B": {
+            "key": "B",
             "value": "S",
             "storyChoice": "Clean one room at a time methodically",
             "scenery": "",
@@ -274,6 +294,7 @@
         "scenery": "public/images/robot-machine.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "N",
             "storyChoice": "Let it continue creatively",
             "scenery": "",
@@ -281,6 +302,7 @@
             "conclusion": "END"
           },
           "B": {
+            "key": "B",
             "value": "S",
             "storyChoice": "Force it to focus strictly on cleaning",
             "scenery": "",
@@ -297,6 +319,7 @@
         "scenery": "public/images/robot-machine.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "S",
             "storyChoice": "Analyze and fix problems one by one",
             "scenery": "",
@@ -304,6 +327,7 @@
             "conclusion": "GOOD ENDING"
           },
           "B": {
+            "key": "B",
             "value": "N",
             "storyChoice": "Act quickly based on instinct",
             "scenery": "",
@@ -333,6 +357,7 @@
         "scenery": "public/images/ceo.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "T",
             "storyChoice": "Hire a robot",
             "scenery": "",
@@ -340,6 +365,7 @@
             "conclusion": ""
           },
           "B": {
+            "key": "B",
             "value": "F",
             "storyChoice": "Hire a human",
             "scenery": "",
@@ -356,6 +382,7 @@
         "scenery": "public/images/ceo.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "T",
             "storyChoice": "Use cheap, straightforward ads",
             "scenery": "",
@@ -363,6 +390,7 @@
             "conclusion": "END"
           },
           "B": {
+            "key": "B",
             "value": "F",
             "storyChoice": "Use high-quality futuristic ads",
             "scenery": "",
@@ -379,6 +407,7 @@
         "scenery": "public/images/ceo.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "T",
             "storyChoice": "Choose high-quality futuristic ads",
             "scenery": "",
@@ -386,6 +415,7 @@
             "conclusion": ""
           },
           "B": {
+            "key": "B",
             "value": "F",
             "storyChoice": "Choose cheap, straightforward ads",
             "scenery": "",
@@ -402,6 +432,7 @@
         "scenery": "public/images/ceo.jpeg",
         "options": {
           "A": {
+            "key": "A",
             "value": "T",
             "storyChoice": "Send a detailed email explaining everything",
             "scenery": "",
@@ -409,6 +440,7 @@
             "conclusion": "GOOD ENDING"
           },
           "B": {
+            "key": "B",
             "value": "F",
             "storyChoice": "Meet the client personally to talk it through",
             "scenery": "",

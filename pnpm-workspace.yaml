@@ -4,5 +4,6 @@ packages:
   - packages/*
 
 ignoredBuiltDependencies:
+  - '@parcel/watcher'
   - esbuild
   - unrs-resolver

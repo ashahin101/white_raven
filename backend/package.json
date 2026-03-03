@@ -1,6 +1,7 @@
 {
   "name": "@white_raven/backend",
   "version": "1.0.0",
+  "private": "true",
   "scripts": {
     "dev": "nodemon ./src/Server.ts",
     "build": "tsc",
@@ -10,9 +11,11 @@
   },
   "dependencies": {
     "@shared": "workspace:*",
+    "cors": "^2.8.6",
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/supertest": "^7.2.0",
     "nodemon": "^3.1.14",

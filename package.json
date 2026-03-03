@@ -7,6 +7,11 @@
   "main": "index.js",
   "type": "module",
   "packageManager": "pnpm@10.30.3",
+  "workspaces": [
+    "backend",
+    "frontend",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "dev:backend": "pnpm --filter backend run dev",

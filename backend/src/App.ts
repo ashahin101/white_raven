@@ -2,11 +2,21 @@ import express, { NextFunction, Request, Response } from 'express';
 import storybookRouter from './api/Storybook/Storybook.route';
 import storyTreeRouter from './api/StoryTree/StoryTree.route';
 import personalityRouter from './api/Personality/Personality.route';
+import cors from 'cors';
 
 export class App {
   private app = express();
 
-  constructor() {
+  startServer(port: number) {
+    // Protect server by only allowing certain origins
+    this.app.use(
+      cors({
+        origin: 'http://localhost:5173',
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+      }),
+    );
+
     this.initRoutes();
 
     this.app.use(
@@ -16,19 +26,6 @@ export class App {
         next();
       },
     );
-  }
-
-  startServer(port: number) {
-    // // Protect server by only allowing certain origins
-    // this.app.use(function (req: Request, res: Response, next: NextFunction) {
-    //   res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
-    //   res.header(
-    //     'Access-Control-Allow-Headers',
-    //     'Origin, X-Requested-With, Content-Type, Accept',
-    //   );
-    //   next();
-    // });
-
     if (port) {
       this.app.listen(port, (error) => {
         if (error) console.log(error);

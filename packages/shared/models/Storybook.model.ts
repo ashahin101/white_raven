@@ -1,9 +1,11 @@
 export type StoryId = string;
 export type StoryNodeId = string;
+export type StoryNodeOptionKey = string;
 
 type PersonalityCategory = string | 'E/I' | 'P/J' | 'S/N' | 'T/F';
 
 export interface StoryNodeOption {
+  key: StoryNodeOptionKey;
   value: string;
   storyChoice: string;
   scenery: string;
@@ -18,7 +20,7 @@ export interface StoryNode {
   storyline: string;
   scenery: string;
   options: {
-    [K: string]: StoryNodeOption;
+    [K: StoryNodeOptionKey]: StoryNodeOption;
   };
 }
 
