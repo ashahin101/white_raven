@@ -1,4 +1,4 @@
-import express, { NextFunction, Request, Response } from 'express';
+import express, { NextFunction, Request, Response, Application } from 'express';
 import storybookRouter from './api/Storybook/Storybook.route';
 import storyTreeRouter from './api/StoryTree/StoryTree.route';
 import personalityRouter from './api/Personality/Personality.route';
@@ -42,9 +42,11 @@ export class App {
     this.app.use('/canonical', canonicalRouter);
   }
 
-  getExpressApp() {
+  getExpressApp = (): Application => {
+    // For app testing purposes
+    this.initRoutes();
     return this.app;
-  }
+  };
 }
 
 const app = new App();

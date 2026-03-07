@@ -7,6 +7,7 @@ import {
   StoryBranchId,
   Canonical,
   TopicNode,
+  SceneId,
   // ChapterId,
   // TopicId,
   // StoryNodeId,
@@ -53,27 +54,30 @@ export function canonicalNormalizer(
       };
 
       // Story Nodes, Scenes & Topics level:
-      Object.entries(branchObj.scenes).map(([sceneId, sceneOptions]) => {
-        const [storyName, nodeId] = sceneId.split('::');
-        const storybook = books[storyName];
-        const storyNode = storybook.nodes[`${storyName}::${nodeId}`];
+      Object.entries(branchObj.scenes).map(
+        ([sceneId, sceneOptions]: [
+          sceneId: string,
+          sceneOptions: Record<string, SceneId | 'END'>,
+        ]) => {
+          const [storyName, nodeId] = sceneId.split('::');
+          const storybook = books[storyName];
+          const storyNode = storybook.nodes[`${storyName}::${nodeId}`];
 
-        const topicId = uuid();
-        // topicsIdsMap.set(topicId, nodeId);
+          const topicId = uuid();
+          // topicsIdsMap.set(topicId, nodeId);
 
-        const topic = {
-          meta: {
-            id: topicId,
-            storybookId: storybook.meta.id,
-            storyTreeId,
-            branchId,
-            nodeId,
-          },
-          // Dangerous use of 'as'
-          topicNode: storyNode as TopicNode,
-        };
-        console.log('Buggy', storyName, nodeId, topic, storyNode);
-        try {
+          const topic = {
+            meta: {
+              id: topicId,
+              storybookId: storybook.meta.id,
+              storyTreeId,
+              branchId,
+              nodeId,
+            },
+            // Dangerous use of 'as'
+            topicNode: storyNode as TopicNode,
+          };
+
           // Choices & Options level:
           const enhancedStoryNodeOptions = Object.fromEntries(
             Object.entries(storyNode.options).map(([optionKey, optionObj]) => {
@@ -100,12 +104,10 @@ export function canonicalNormalizer(
           );
 
           topic.topicNode.options = enhancedStoryNodeOptions;
-        } catch (error) {
-          console.log('Buggy error', error);
-        }
 
-        canonical.topics[sceneId] = topic;
-      });
+          canonical.topics[sceneId] = topic;
+        },
+      );
     },
   );
 

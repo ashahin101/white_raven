@@ -1,7 +1,7 @@
 import { json, Router } from 'express';
 import * as handlers from './Canonical.handler';
 
-const canonicalRouter = Router();
+const canonicalRouter: Router = Router();
 
 canonicalRouter.use(json());
 

@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "nodemon ./src/Server.ts",
     "build": "tsc",
-    "start": "ts-node ./src/Server.ts",
-    "test": "set NODE_OPTIONS=--experimental-vm-modules && jest",
+    "start": "node dist/src/Server.js",
+    "start:dev": "ts-node ./src/Server.ts",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules && jest",
     "test:watch": "set NODE_OPTIONS=--experimental-vm-modules && jest --watch"
   },
   "dependencies": {

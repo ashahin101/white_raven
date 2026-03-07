@@ -1,14 +1,16 @@
 {
   "extends": "../tsconfig.json",
+  "include": ["src/**/*", "src/mini-db/dummy-data/*.json"],
   "compilerOptions": {
     "target": "ES2022",
     "allowSyntheticDefaultImports": true,
     "module": "node16",
-    "rootDir": "../",
+    "rootDir": "./",
     "outDir": "dist",
     "moduleResolution": "Node16",
-    "composite": true
+    "composite": true,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true
   },
-  "references": [{ "path": "../packages/shared" }],
-  "files": ["src/mini-db/dummy-data/stories_trees.json"]
+  "references": [{ "path": "../packages/shared" }]
 }

@@ -2,7 +2,9 @@
   "name": "@shared",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {},
   "devDependencies": {}
 }
