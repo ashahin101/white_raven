@@ -1,7 +1,6 @@
 import {
   isRouteErrorResponse,
   Links,
-  Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
@@ -9,6 +8,8 @@ import {
 
 import type { Route } from './+types/root';
 import './app.css';
+import 'bootstrap/scss/bootstrap.scss';
+import 'public/style/root.css';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

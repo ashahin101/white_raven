@@ -1,27 +1,21 @@
-import { useContext } from 'react';
-import { StoryCtx } from './StoryCtx';
+import { useStoryCtx } from './StoryCtx';
 
 export function StoryBridge() {
-  const sCtx = useContext(StoryCtx);
-  //   return (
-  //     <div>
-  //       {JSON.stringify(sCtx.choice) + '  ' + JSON.stringify(sCtx.branch)}
-  //     </div>
-  //   );
-  return sCtx.choice?.bridge ?
+  const { state: sState, actions: sActions } = useStoryCtx();
+
+  return sState.choice?.bridge ?
       <div
         id="storyBridge"
-        className="justify-content-lg-evenly justify-content-center mt-0 row gy-2 gx-0"
+        className="justify-content-lg-evenly align-items-center align-content-center justify-content-center gap-2 mt-0 align-middle row gy-2 gx-0"
       >
-        hiiiiiiiii
-        {sCtx.choice.bridge}
+        {sState.choice.bridge}
         <button
           type="button"
           autoFocus
           className="w-auto btn btn-dark"
           onClick={() => {
-            sCtx.goToScene();
-            sCtx.setShowBridge(false);
+            sActions.goToTopic();
+            // sState.hideBridge();
           }}
         >
           Continue

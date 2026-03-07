@@ -1,268 +1,234 @@
-import React, { createContext, useEffect, useState } from 'react';
+import type { Personality } from '@shared/models';
+import type {
+  Canonical,
+  Chapter,
+  StoryTopicNodeOption,
+  Topic,
+  TopicId,
+} from '@shared/models/Canonical.model';
+import { calculateFinalResult } from 'lib/calculateFinalResult';
 import {
-  type Scene,
-  type SceneId,
-  type Storybook,
-  type StoryBranch,
-  type StoryNode,
-  type StoryNodeOption,
-  type StoryTree,
-} from '@shared/models';
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type PropsWithChildren,
+} from 'react';
 
 const categoriesOrder = ['E/I', 'P/J', 'S/N', 'T/F'] as const;
-
-type Setter<T> = (arg: T) => void;
-// type Setter<T> = React.Dispatch<React.SetStateAction<T>>;
-
-interface StoryCtxState {
-  // Getters
-  storybook: Storybook | null;
-  storyTree: StoryTree | null;
-  branch: StoryBranch | null;
-  storyNode: StoryNode | null;
-  scene: Scene | null;
-  categoriesOrder: typeof categoriesOrder;
-  results: {
-    'E/I': string[];
-    'P/J': string[];
-    'S/N': string[];
-    'T/F': string[];
-  };
-  categoryIndex: number;
-  showHintDialog: boolean;
-  showBridge: boolean;
-  choice: StoryNodeOption | null;
-  nextSceneId: SceneId | null;
-  // Setter
-  setStorybook: Setter<StoryCtxState['storybook']>;
-  setStoryTree: Setter<StoryCtxState['storyTree']>;
-  setBranch: Setter<StoryCtxState['branch']>;
-  setStoryNode: Setter<StoryCtxState['storyNode']>;
-  setScene: Setter<StoryCtxState['scene']>;
-  setResults: Setter<StoryCtxState['results']>;
-  setCategoryIndex: Setter<number>;
-  setShowHintDialog: Setter<boolean>;
-  setChoice: Setter<StoryCtxState['choice']>;
-  setShowBridge: Setter<boolean>;
-  setNextSceneId: Setter<StoryCtxState['nextSceneId']>;
-  // Actions
-  onClickOptionHandler: (
-    event: React.MouseEvent<Element, MouseEvent>,
-    key: string,
-    option: StoryNodeOption,
-  ) => void;
-  goToScene: (nextSceneId?: SceneId) => void;
-}
-
-const initState: StoryCtxState = {
-  // Getters
-  storybook: {} as unknown as Storybook,
-  storyTree: {} as unknown as StoryTree,
-  branch: null,
-  storyNode: null,
-  scene: null,
-  results: {
-    'E/I': [],
-    'P/J': [],
-    'S/N': [],
-    'T/F': [],
-  },
-  categoryIndex: 0,
-  categoriesOrder,
-  showHintDialog: false,
-  showBridge: false,
-  choice: null,
-  nextSceneId: null,
-  // Setter
-  setStorybook() {},
-  setStoryTree() {},
-  setBranch() {},
-  setStoryNode() {},
-  setScene() {},
-  setResults() {},
-  setCategoryIndex() {},
-  setShowHintDialog() {},
-  setChoice() {},
-  setShowBridge() {},
-  setNextSceneId() {},
-  // Actions
-  onClickOptionHandler(event: Event, key: string, option: StoryNodeOption) {},
-  goToScene: (nextSceneId?: StoryCtxState['nextSceneId']) => {},
+type Category = (typeof categoriesOrder)[number];
+export type ReaderResults = {
+  personality: Personality | null;
+  results: Record<Category, string[]>;
 };
 
-export const StoryCtx = createContext<StoryCtxState>(initState);
+// State
+interface StoryState {
+  canonical: Canonical | null;
+  chapter: Chapter | null;
+  topic: Topic | null;
+  readerResults: ReaderResults;
+  showBridge: boolean;
+  showHintDialog: boolean;
+  showResults: boolean;
+  choice: StoryTopicNodeOption | null;
+  loaders: { main: boolean };
+}
 
-export const StoryCtxProvider: React.FC<React.PropsWithChildren> = (props) => {
-  //---> state
+// Actions
+interface StoryActions {
+  goToTopic(nextId?: TopicId): void;
+
+  onClickOptionHandler(
+    event: React.MouseEvent<Element, MouseEvent>,
+    key: string,
+    option: StoryTopicNodeOption,
+  ): void;
+
+  openHintDialog: () => void;
+  closeHintDialog: () => void;
+}
+
+// State + Actions + Setters
+type StoryCtxState = {
+  state: StoryState;
+  actions: StoryActions;
+  // setCanonical: React.Dispatch<
+  //   React.SetStateAction<StoryCtxState['canonical']>
+  // >;
+  // setChapter: React.Dispatch<React.SetStateAction<StoryCtxState['chapter']>>;
+  // setTopic: React.Dispatch<React.SetStateAction<StoryCtxState['topic']>>;
+  // setReaderResults: React.Dispatch<React.SetStateAction<ReaderResults>>;
+  // setShowBridge: React.Dispatch<
+  //   React.SetStateAction<StoryCtxState['showBridge']>
+  // >;
+  // setShowHintDialog: React.Dispatch<
+  //   React.SetStateAction<StoryCtxState['showHintDialog']>
+  // >;
+  // setChoice: React.Dispatch<React.SetStateAction<StoryCtxState['choice']>>;
+};
+
+const StoryCtx = createContext<StoryCtxState | undefined>(undefined);
+
+export function useStoryCtx() {
+  const ctx = useContext(StoryCtx);
+  if (!ctx) {
+    throw new Error('useStoryCtx must be used inside StoryCtxProvider');
+  }
+  return ctx;
+}
+
+const INITIAL_RESULTS: ReaderResults['results'] = {
+  'E/I': [],
+  'P/J': [],
+  'S/N': [],
+  'T/F': [],
+};
+
+export const StoryCtxProvider = (props: PropsWithChildren) => {
   // Data
-  const [storybook, setStorybook] = useState<StoryCtxState['storybook']>(null);
-  const [storyTree, setStoryTree] = useState<StoryCtxState['storyTree']>(null);
-
-  // Key State
-  const [branch, setBranch] = useState<StoryCtxState['branch']>(null);
-  const [storyNode, setStoryNode] = useState<StoryCtxState['storyNode']>(null);
-  const [scene, setScene] = useState<StoryCtxState['scene']>(null);
-  const [choice, setChoice] = useState<StoryCtxState['choice']>(null);
-  const [nextSceneId, setNextSceneId] =
-    useState<StoryCtxState['nextSceneId']>(null);
-  const [categoryIndex, setCategoryIndex] = useState(0);
-
-  // Accumulative
-  const [results, setResults] = useState(initState.results);
-
+  const [canonical, setCanonical] = useState<StoryState['canonical']>(null);
+  // Main State
+  const [chapter, setChapter] = useState<StoryState['chapter']>(null);
+  const [topic, setTopic] = useState<StoryState['topic']>(null);
+  const [choice, setChoice] = useState<StoryState['choice']>(null);
+  const [readerResults, setReaderResults] = useState<ReaderResults>({
+    personality: null,
+    results: INITIAL_RESULTS,
+  });
   // Flags
-  const [showHintDialog, setShowHintDialog] = useState(false);
-  const [showBridge, setShowBridge] = useState(false);
+  const [showBridge, setShowBridge] = useState<StoryState['showBridge']>(false);
+  const [showHintDialog, setShowHintDialog] =
+    useState<StoryState['showHintDialog']>(false);
+  const [showResults, setShowResults] =
+    useState<StoryState['showResults']>(false);
 
-  //---> Functions
-  //
-  const goToScene: StoryCtxState['goToScene'] = (
-    nextId = nextSceneId ?? undefined,
+  const [loaders, setLoaders] = useState<StoryState['loaders']>({
+    main: true,
+  });
+
+  const goToTopic: StoryActions['goToTopic'] = async (
+    nextId = choice?.target,
   ) => {
-    if (nextId === 'END') {
-      // handleChapterEnd();
-      return;
+    if (!canonical) return;
+    if (!nextId) {
+      if (choice?.isChapterEnd) {
+        const personality =
+          (await calculateFinalResult(readerResults.results)) ?? null;
+        setReaderResults((prev) => ({
+          ...prev,
+          personality,
+        }));
+        setShowBridge(false);
+        setShowResults(true);
+      }
+    } else {
+      console.log('nextId', nextId);
+      setTopic(canonical.topics[nextId]);
+      setShowBridge(false);
     }
-    // Change selected branch ID to n
-    setNextSceneId(nextId ?? null);
   };
 
-  const onClickOptionHandler: StoryCtxState['onClickOptionHandler'] = (
-    event,
-    key,
+  const onClickOptionHandler: StoryActions['onClickOptionHandler'] = (
+    _event,
+    _key,
     option,
   ) => {
     setChoice(option);
 
     // Record selected option value, and added it to results
-    const selectedCategory = categoriesOrder[categoryIndex];
-    setResults((prev) => {
-      prev[selectedCategory].push(option.value);
-      return prev;
+    const selectedCategory = topic?.topicNode.category as Category | undefined;
+    setReaderResults((prev) => {
+      if (selectedCategory && selectedCategory in prev.results) {
+        return {
+          ...prev,
+          results: {
+            ...prev.results,
+            [selectedCategory]: [
+              ...prev.results[selectedCategory],
+              option.value,
+            ],
+          },
+        };
+      } else return prev;
     });
 
     // Move next scene
     // (nextSceneId e.g., `E3`)
-    if (scene) {
-      console.log('nextSceneId', nextSceneId);
+    if (topic) {
+      console.log('Next topic ID', option);
       if (option.bridge) {
         setShowBridge(true);
         return;
-      } else if (nextSceneId) {
-        goToScene(nextSceneId);
       }
+      goToTopic(option.target);
     }
   };
 
-  //---> Effects
-  //
-  useEffect(() => {
-    if (choice?.key && typeof choice.key === 'string' && scene) {
-      setNextSceneId(branch?.scenes?.[scene.id]?.[choice.key] ?? null);
-    } else setNextSceneId(null);
-  }, [branch, choice]);
+  const openHintDialog = () => {
+    setShowHintDialog(true);
+  };
+
+  const closeHintDialog = () => {
+    setShowHintDialog(false);
+  };
 
   useEffect(() => {
-    const fetchDate = async () => {
-      await Promise.all(
-        [
-          { url: 'http://localhost:8081/story_trees/', setter: setStoryTree },
-          { url: 'http://localhost:8081/storybooks/', setter: setStorybook },
-        ].map(async (reqObj) => {
-          const { url, setter } = reqObj;
+    // Fetch canonical using a story tree ID
+    const initData = async () => {
+      setLoaders((prev) => ({ ...prev, main: true }));
+      try {
+        const res = await fetch(
+          'http://localhost:8081/canonical/story_tree_a',
+          {
+            method: 'GET',
+            headers: {
+              'content-type': 'application/json',
+            },
+          },
+        );
+        const jsonResult: StoryState['canonical'] = await res.json();
 
-          const result = await fetch(url, { method: 'GET' });
-          const jsonResult = await result.json();
+        if (jsonResult) {
+          // Find first chapter, then find first topic
+          // and finally set user at the beginning of the canonical
+          setCanonical(jsonResult);
 
-          setter(jsonResult[0]);
-        }),
-      );
+          const firstChapter = jsonResult.chapters[jsonResult.chaptersOrder[0]];
+          const firstTopicId = firstChapter.storyBranch.meta.start;
+          setChapter(firstChapter ?? null);
+          setTopic(jsonResult.topics[firstTopicId]);
+        }
+      } catch (error) {
+        console.log('Error initializing story canonical data', error);
+      }
+      setLoaders((prev) => ({ ...prev, main: false }));
     };
-    fetchDate();
+    initData();
   }, []);
 
-  useEffect(() => {
-    if (storyTree && storybook) {
-      const result = selectStoryStart(
-        storyTree,
-        nextSceneId ?? storyTree?.meta.start,
-      );
-      if (result) {
-        setBranch(result.branch);
-        setStoryNode(storybook?.nodes[result.currentSceneId]);
-        setScene(result.branch.scenes[result.currentSceneId]);
-      }
-    }
-  }, [storyTree, storybook, nextSceneId]);
+  const value: StoryCtxState = {
+    // State
+    state: {
+      canonical,
+      chapter,
+      topic,
+      readerResults,
+      showHintDialog,
+      showBridge,
+      showResults,
+      choice,
+      loaders,
+    },
 
-  //   useEffect(() => {
-  //   if (storyTree && storybook && nextSceneId) {
-  //     const result = selectStoryStart(storyTree, nextSceneId);
-  //     if (result) {
-  //       setBranch(result.branch);
-  //       setStoryNode(storybook?.nodes[result.currentSceneId]);
-  //       setScene(result.branch.scenes[result.currentSceneId]);
-  //     }
-  //   }
-  // }, [storyTree, storybook, nextSceneId]);
+    // Actions
+    actions: {
+      goToTopic,
+      onClickOptionHandler,
+      openHintDialog,
+      closeHintDialog,
+    },
+  };
 
-  //---> Render
-  //
-  return (
-    <StoryCtx.Provider
-      value={{
-        // Getters
-        storybook,
-        storyTree,
-        branch,
-        storyNode,
-        scene,
-        results,
-        categoryIndex,
-        categoriesOrder: initState.categoriesOrder,
-        showHintDialog,
-        showBridge,
-        choice,
-        nextSceneId,
-        // Setter
-        setStorybook,
-        setStoryTree,
-        setBranch,
-        setStoryNode,
-        setScene,
-        setResults,
-        setCategoryIndex,
-        setShowHintDialog,
-        setChoice,
-        setShowBridge,
-        setNextSceneId,
-        // Actions
-        onClickOptionHandler,
-        goToScene,
-      }}
-    >
-      {props.children}
-    </StoryCtx.Provider>
-  );
+  return <StoryCtx.Provider value={value}>{props.children}</StoryCtx.Provider>;
 };
-
-// Takes a story tree and a starting point ID
-// and returns related branches (an object of other branches or leafs)
-function selectStoryStart(
-  tree: StoryTree,
-  startRoot: SceneId,
-): { branch: StoryBranch; currentSceneId: SceneId } | undefined {
-  const currentBranch = tree.branches[startRoot];
-  // We reached the final level of the tree (a leaf).
-  if (currentBranch.scenes) {
-    return {
-      currentSceneId: currentBranch.meta.start,
-      branch: currentBranch,
-    };
-  }
-  // Recursively select the next nested tree
-  else {
-    const selectedBranch = currentBranch as unknown as StoryTree;
-    selectStoryStart(selectedBranch, currentBranch.meta.start);
-  }
-}

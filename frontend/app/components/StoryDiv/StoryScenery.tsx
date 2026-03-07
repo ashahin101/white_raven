@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import 'public/style/storylineSceneryImg.css';
 
 function loadNextSceneImage(
   newImgUrl: string,
@@ -22,7 +23,13 @@ function loadNextSceneImage(
   };
 }
 
-export function StoryScenery({ imgSrc }: { imgSrc: string }) {
+export function StoryScenery({
+  imgSrc,
+  loading,
+}: {
+  imgSrc: string;
+  loading?: boolean;
+}) {
   const sceneryDiv = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,11 +51,16 @@ export function StoryScenery({ imgSrc }: { imgSrc: string }) {
       id="storylineSceneryDiv"
       className="d-flex justify-content-center p-0 col-12 col-lg-8"
     >
-      <div
-        id="storylineSceneryImg"
-        ref={sceneryDiv}
-        className="w-100 background-image-animate"
-      />
+      {loading ?
+        <div className="d-flex justify-content-center w-100 h-100 placeholder-glow">
+          <div className="w-100 storylineImgLoader placeholder" />
+        </div>
+      : <div
+          id="storylineSceneryImg"
+          ref={sceneryDiv}
+          className="w-100 background-image-animate"
+        />
+      }
     </div>
   );
 }

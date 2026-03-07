@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { StoryCtx } from './StoryCtx';
+import React from 'react';
+import { useStoryCtx } from './StoryCtx';
 
 interface StorylineDivProps {
   storyline?: React.ReactNode;
@@ -7,7 +7,7 @@ interface StorylineDivProps {
 }
 
 export const StorylineDiv: React.FC<StorylineDivProps> = (props) => {
-  const sCtx = useContext(StoryCtx);
+  const { actions: sActions } = useStoryCtx();
   return (
     <div
       id="mainStorylineDiv"
@@ -21,7 +21,7 @@ export const StorylineDiv: React.FC<StorylineDivProps> = (props) => {
         className="bg-info-subtle border-info rounded-1"
         title="hint"
         onClick={() => {
-          sCtx.setShowHintDialog(true);
+          sActions.openHintDialog();
         }}
       >
         ?
