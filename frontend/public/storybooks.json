@@ -1,0 +1,454 @@
+{
+  "story_a": {
+    "meta": {
+      "id": "story_a",
+      "title": "The Augmented Train",
+      "author": "story-engine",
+      "version": "1.0",
+      "start": "story_a::E1",
+      "tags": ["sci-fi"],
+      "description": "You enter an augmented reality. Navigate a train world that reveals your social nature."
+    },
+    "nodes": {
+      "story_a::E1": {
+        "id": "story_a::E1",
+        "category": "E/I",
+        "question": "You find it easy to introduce yourself to other people.",
+        "storyline": "You were spawned as a train operator. Which train do you want to enter?",
+        "scenery": "public/images/trains.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "E",
+            "storyChoice": "Enter the train with many people in it",
+            "scenery": "",
+            "bridge": "The train is full of passengers and very noisy. So noisy you can barely hear your own thoughts.",
+            "conclusion": ""
+          },
+          "B": {
+            "key": "B",
+            "value": "I",
+            "storyChoice": "Enter the nearly empty train",
+            "scenery": "",
+            "bridge": "The train currently has one other passenger, that is your co-worker",
+            "conclusion": ""
+          }
+        }
+      },
+      "story_a::E2": {
+        "id": "story_a::E2",
+        "category": "E/I",
+        "question": "You prefer to be in the center of attention.",
+        "storyline": "While you were trying your best to focus on your job amidst the chaos, a group of angry-looking people came to ask when the train is going to reach a certain stop.",
+        "scenery": "public/images/trains.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "E",
+            "storyChoice": "Start answering their questions",
+            "scenery": "",
+            "bridge": "After answering the group’s questions, many more people start asking. By the time you finish answering everyone, the train reaches its final stop.",
+            "conclusion": "END"
+          },
+          "B": {
+            "key": "B",
+            "value": "I",
+            "storyChoice": "Ignore them and work alone",
+            "scenery": "",
+            "bridge": "You tell them to be patient, escape to the back of the train, and work alone away from the chaos.",
+            "conclusion": ""
+          }
+        }
+      },
+      "story_a::E3": {
+        "id": "story_a::E3",
+        "category": "E/I",
+        "question": "You prefer to interact with many people at once over one-on-one conversations.",
+        "storyline": "After finishing some checkups on the empty train, you get the idea of talking to your co-worker to pass the time.",
+        "scenery": "",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "I",
+            "storyChoice": "Don’t talk to the man",
+            "scenery": "",
+            "bridge": "You put on your earbuds and listen to music until the train reaches its final stop.",
+            "conclusion": "END"
+          },
+          "B": {
+            "key": "B",
+            "value": "E",
+            "storyChoice": "Talk to the man",
+            "scenery": "",
+            "bridge": "You enjoy a long conversation, discover many shared interests, say goodbye, and return to work.",
+            "conclusion": ""
+          }
+        }
+      },
+      "story_a::E4": {
+        "id": "E4",
+        "category": "E/I",
+        "question": "You are comfortable with small talk and chatting with strangers.",
+        "storyline": "While fixing some parts of the train, one of your coworkers asks if they can join you and help.",
+        "scenery": "public/images/trains.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "E",
+            "storyChoice": "Let them help",
+            "scenery": "",
+            "bridge": "You work together, make small talk, and fix the train efficiently.",
+            "conclusion": "END"
+          },
+          "B": {
+            "key": "B",
+            "value": "I",
+            "storyChoice": "Tell them you can do it alone",
+            "scenery": "",
+            "bridge": "You work alone. It takes more time and effort, but you enjoy the solitude.",
+            "conclusion": "END"
+          }
+        }
+      }
+    }
+  },
+  "story_b": {
+    "meta": {
+      "id": "story_b",
+      "title": "The Dinosaur Jungle",
+      "author": "story-engine",
+      "version": "1.0",
+      "start": "story_b::P1",
+      "tags": ["adventure"],
+      "description": "A white portal drops you into a vast jungle. Your choices reveal how you approach plans and decisions."
+    },
+    "nodes": {
+      "story_b::P1": {
+        "id": "story_b::P1",
+        "category": "P/J",
+        "question": "You prefer to have a detailed schedule rather than a flexible one.",
+        "storyline": "You find yourself in a huge jungle filled with tall trees and distant dinosaur roars. A glowing portal is visible ahead.",
+        "scenery": "public/images/dinosaur-jungle.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "P",
+            "storyChoice": "Explore the jungle",
+            "scenery": "",
+            "bridge": "You move deeper into the jungle, noticing claw marks on trees and crushed ferns near a narrow path.",
+            "conclusion": ""
+          },
+          "B": {
+            "key": "B",
+            "value": "J",
+            "storyChoice": "Head directly to the portal",
+            "scenery": "",
+            "bridge": "You sprint toward the portal on the hill as the ground begins to shake.",
+            "conclusion": ""
+          }
+        }
+      },
+      "story_b::P2": {
+        "id": "story_b::P2",
+        "category": "P/J",
+        "question": "You tend to make decisions spontaneously rather than following a strict plan.",
+        "storyline": "The claw marks suggest danger nearby. You must decide how to move forward.",
+        "scenery": "public/images/dinosaur-jungle.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "P",
+            "storyChoice": "Take the longer, safer route",
+            "scenery": "",
+            "bridge": "You carefully avoid danger and reach the portal without complications.",
+            "conclusion": "END"
+          },
+          "B": {
+            "key": "B",
+            "value": "J",
+            "storyChoice": "Walk quickly through the marked path",
+            "scenery": "",
+            "bridge": "A dinosaur is alerted. You run for your life and barely escape toward the portal.",
+            "conclusion": ""
+          }
+        }
+      },
+      "story_b::P3": {
+        "id": "story_b::P3",
+        "category": "P/J",
+        "question": "You prefer to keep your options open rather than finalizing a decision early.",
+        "storyline": "The ground shakes violently. A loud roar erupts behind you — closer than before.",
+        "scenery": "public/images/dinosaur-jungle.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "P",
+            "storyChoice": "Dive through the portal immediately",
+            "scenery": "",
+            "bridge": "You trust your instincts and leap through the portal without hesitation.",
+            "conclusion": "END"
+          },
+          "B": {
+            "key": "B",
+            "value": "J",
+            "storyChoice": "Stop and look back",
+            "scenery": "",
+            "bridge": "You see the dinosaur charging toward you as the portal flickers ahead.",
+            "conclusion": ""
+          }
+        }
+      },
+      "story_b::P4": {
+        "id": "story_b::P4",
+        "category": "P/J",
+        "question": "You prefer sticking to a plan rather than adapting on the fly.",
+        "storyline": "The portal flickers unstably as heavy footsteps shake the ground behind you.",
+        "scenery": "public/images/dinosaur-jungle.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "J",
+            "storyChoice": "Wait for the portal to stabilize",
+            "scenery": "",
+            "bridge": "You time your jump perfectly and safely enter the portal.",
+            "conclusion": "GOOD ENDING"
+          },
+          "B": {
+            "key": "B",
+            "value": "P",
+            "storyChoice": "Jump in immediately",
+            "scenery": "",
+            "bridge": "The unstable portal throws you back and a dinosaur catches you — but you still advance to the next stage.",
+            "conclusion": "BAD ENDING"
+          }
+        }
+      }
+    }
+  },
+  "story_c": {
+    "meta": {
+      "id": "story_c",
+      "title": "The Robot Workshop",
+      "author": "story-engine",
+      "version": "1.0",
+      "start": "story_c::S1",
+      "tags": ["personality", "mbti", "S/N", "sci-fi"],
+      "description": "A robot-creating machine awaits. How you build reveals how you perceive the world."
+    },
+    "nodes": {
+      "story_c::S1": {
+        "id": "story_c::S1",
+        "category": "S/N",
+        "question": "You focus more on facts than ideas.",
+        "storyline": "You discover a robot-creating machine. Your goal is to build a robot that helps with home chores.",
+        "scenery": "public/images/robot-machine.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "N",
+            "storyChoice": "Give the robot a friendly, conversational personality",
+            "scenery": "",
+            "bridge": "The robot begins chatting and moving around the house energetically.",
+            "conclusion": ""
+          },
+          "B": {
+            "key": "B",
+            "value": "S",
+            "storyChoice": "Give the robot a focused, practical personality",
+            "scenery": "",
+            "bridge": "The robot starts surveying laundry, dishes, and scattered items efficiently.",
+            "conclusion": ""
+          }
+        }
+      },
+      "story_c::S2": {
+        "id": "story_c::S2",
+        "category": "S/N",
+        "question": "You are more inclined to use tried and true methods than experiment with new ones.",
+        "storyline": "Your practical robot begins organizing chores throughout the house.",
+        "scenery": "public/images/robot-machine.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "N",
+            "storyChoice": "Let it adapt and switch tasks freely",
+            "scenery": "",
+            "bridge": "The robot behaves creatively, jumping between tasks as it sees fit.",
+            "conclusion": "END"
+          },
+          "B": {
+            "key": "B",
+            "value": "S",
+            "storyChoice": "Clean one room at a time methodically",
+            "scenery": "",
+            "bridge": "Each task is double-checked, resulting in a perfectly clean home.",
+            "conclusion": ""
+          }
+        }
+      },
+      "story_c::S3": {
+        "id": "story_c::S3",
+        "category": "S/N",
+        "question": "You prefer concrete facts over abstract theories.",
+        "storyline": "Your friendly robot hums tunes, comments on the mess, and moves freely between chores.",
+        "scenery": "public/images/robot-machine.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "N",
+            "storyChoice": "Let it continue creatively",
+            "scenery": "",
+            "bridge": "The robot becomes a delightful companion and helpful assistant.",
+            "conclusion": "END"
+          },
+          "B": {
+            "key": "B",
+            "value": "S",
+            "storyChoice": "Force it to focus strictly on cleaning",
+            "scenery": "",
+            "bridge": "The robot loses its uniqueness and struggles to adapt.",
+            "conclusion": ""
+          }
+        }
+      },
+      "story_c::S4": {
+        "id": "story_c::S4",
+        "category": "S/N",
+        "question": "You trust real experience over intuition.",
+        "storyline": "A sudden problem occurs: the blender tips over, the cat runs wild, and lights flicker.",
+        "scenery": "public/images/robot-machine.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "S",
+            "storyChoice": "Analyze and fix problems one by one",
+            "scenery": "",
+            "bridge": "The robot calmly resolves each issue with precision.",
+            "conclusion": "GOOD ENDING"
+          },
+          "B": {
+            "key": "B",
+            "value": "N",
+            "storyChoice": "Act quickly based on instinct",
+            "scenery": "",
+            "bridge": "The robot causes chaos but somehow survives the situation.",
+            "conclusion": "BAD ENDING"
+          }
+        }
+      }
+    }
+  },
+  "story_d": {
+    "meta": {
+      "id": "story_d",
+      "title": "The Future Company",
+      "author": "story-engine",
+      "version": "1.0",
+      "start": "story_d::T1",
+      "tags": ["personality", "mbti", "T/F", "business"],
+      "description": "You manage a growing company. Your decisions reveal how you judge and decide."
+    },
+    "nodes": {
+      "story_d::T1": {
+        "id": "story_d::T1",
+        "category": "T/F",
+        "question": "You make decisions based on logic rather than emotions.",
+        "storyline": "In the future, you are managing a growing company with your father and need to hire someone for a critical role.",
+        "scenery": "public/images/ceo.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "T",
+            "storyChoice": "Hire a robot",
+            "scenery": "",
+            "bridge": "The robot guarantees efficiency, accuracy, and unbiased decision-making. Productivity increases immediately.",
+            "conclusion": ""
+          },
+          "B": {
+            "key": "B",
+            "value": "F",
+            "storyChoice": "Hire a human",
+            "scenery": "",
+            "bridge": "The human hire brings empathy, creativity, and improves team morale.",
+            "conclusion": ""
+          }
+        }
+      },
+      "story_d::T2": {
+        "id": "story_d::T2",
+        "category": "T/F",
+        "question": "You value consistency and fairness over personal feelings.",
+        "storyline": "Your company needs to launch an advertising campaign for a new product.",
+        "scenery": "public/images/ceo.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "T",
+            "storyChoice": "Use cheap, straightforward ads",
+            "scenery": "",
+            "bridge": "The ads are efficient, clear, and focused entirely on results.",
+            "conclusion": "END"
+          },
+          "B": {
+            "key": "B",
+            "value": "F",
+            "storyChoice": "Use high-quality futuristic ads",
+            "scenery": "",
+            "bridge": "The ads emotionally engage people and strengthen long-term brand loyalty.",
+            "conclusion": ""
+          }
+        }
+      },
+      "story_d::T3": {
+        "id": "story_d::T3",
+        "category": "T/F",
+        "question": "You find it easy to empathize with others’ feelings.",
+        "storyline": "You are deciding how to promote your product to the public.",
+        "scenery": "public/images/ceo.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "T",
+            "storyChoice": "Choose high-quality futuristic ads",
+            "scenery": "",
+            "bridge": "The campaign builds a strong emotional connection but takes time to show measurable results.",
+            "conclusion": ""
+          },
+          "B": {
+            "key": "B",
+            "value": "F",
+            "storyChoice": "Choose cheap, straightforward ads",
+            "scenery": "",
+            "bridge": "The product sells, but the brand feels impersonal and uninspiring.",
+            "conclusion": "END"
+          }
+        }
+      },
+      "story_d::T4": {
+        "id": "story_d::T4",
+        "category": "T/F",
+        "question": "You prioritize harmony and other people’s feelings over strict logic.",
+        "storyline": "A very angry client contacts you about a serious problem with an important project.",
+        "scenery": "public/images/ceo.jpeg",
+        "options": {
+          "A": {
+            "key": "A",
+            "value": "T",
+            "storyChoice": "Send a detailed email explaining everything",
+            "scenery": "",
+            "bridge": "The situation is handled logically with clear documentation and professional clarity.",
+            "conclusion": "GOOD ENDING"
+          },
+          "B": {
+            "key": "B",
+            "value": "F",
+            "storyChoice": "Meet the client personally to talk it through",
+            "scenery": "",
+            "bridge": "You empathize with the client, rebuild trust, and resolve the conflict through human connection.",
+            "conclusion": "GOOD ENDING"
+          }
+        }
+      }
+    }
+  }
+}

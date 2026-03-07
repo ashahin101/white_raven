@@ -14,9 +14,8 @@ export interface StoryTree {
     tags: string[];
     description: string;
   };
-  branches: {
-    [K: StoryBranchId]: StoryBranch;
-  };
+  branchesOrder: string[];
+  branches: Record<StoryBranchId, StoryBranch>;
 }
 
 export interface StoryBranch {

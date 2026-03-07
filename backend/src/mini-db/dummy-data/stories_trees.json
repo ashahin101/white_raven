@@ -118,6 +118,7 @@
         },
         "exit": ""
       }
-    }
+    },
+    "branchesOrder": ["E/I", "P/J", "S/N", "T/F"]
   }
 }
