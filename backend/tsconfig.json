@@ -8,9 +8,7 @@
     "rootDir": "./",
     "outDir": "dist",
     "moduleResolution": "Node16",
-    "composite": true,
-    "allowImportingTsExtensions": true,
-    "rewriteRelativeImportExtensions": true
+    "composite": true
   },
   "references": [{ "path": "../packages/shared" }]
 }
