@@ -1,10 +1,10 @@
-// import { json, Router } from 'express';
-// import * as handlers from './Canonical.handler';
+import { json, Router } from 'express';
+import * as handlers from './Canonical.handler';
 
-// const canonicalRouter: Router = Router();
+const canonicalRouter = Router();
 
-// canonicalRouter.use(json());
+canonicalRouter.use(json());
 
-// // canonicalRouter.get('/', handlers.getAll);
+canonicalRouter.get('/:storyTreeId', handlers.getByStoryTreeId);
 
-// export default canonicalRouter;
+export default canonicalRouter;

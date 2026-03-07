@@ -3,6 +3,7 @@ import storybookRouter from './api/Storybook/Storybook.route';
 import storyTreeRouter from './api/StoryTree/StoryTree.route';
 import personalityRouter from './api/Personality/Personality.route';
 import cors from 'cors';
+import canonicalRouter from './api/Canonical/Canonical.route';
 
 export class App {
   private app = express();
@@ -38,6 +39,7 @@ export class App {
     this.app.use('/storybooks', storybookRouter);
     this.app.use('/story_trees', storyTreeRouter);
     this.app.use('/personalities', personalityRouter);
+    this.app.use('/canonical', canonicalRouter);
   }
 
   getExpressApp() {
