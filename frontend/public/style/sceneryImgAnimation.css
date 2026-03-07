@@ -1,0 +1,146 @@
+/*
+    **Extra animation style for scenes images to enhance experience (optional)**
+*/
+
+.background-image-animate {
+
+    animation: fade 350ms ease forwards,
+        lightPuls 5s cubic-bezier(0.7, 0.6, 0.6, 0.6) infinite;
+
+    background-color: white;
+    width: fit-content;
+    overflow: clip;
+
+    /* pseudo-element shine animation random skew */
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-image: linear-gradient(270deg, #8e9ac255, #42579a55);
+        mix-blend-mode: color-dodge;
+        opacity: 0.75;
+        width: 300%;
+        height: 300%;
+        filter: blur(10px);
+        animation: movingColors 5000ms ease-in-out infinite;
+        pointer-events: none;
+    }
+
+    /* pseudo-element flare animation towards right side */
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        background: rgba(255, 255, 255, 0.05);
+        width: 12%;
+        height: 100%;
+        top: 0;
+        filter: blur(15px);
+        transform: translateX(-100px) skewX(-15deg);
+        animation: flare 1900ms ease infinite;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes lightPuls {
+    0% {
+        filter: brightness(1) saturate(100%);
+    }
+
+    30% {
+        filter: brightness(1.05) saturate(115%);
+    }
+
+    40% {
+        filter: brightness(1.2) saturate(140%);
+    }
+
+    60% {
+        filter: brightness(1.2) saturate(140%);
+    }
+
+    90% {
+        filter: brightness(1) saturate(110%);
+    }
+
+    100% {
+        filter: brightness(1) saturate(100%);
+    }
+}
+
+@keyframes transitioningBackground {
+    0% {
+        background-position: 1% 0%;
+    }
+
+    50% {
+        background-position: 99% 100%;
+    }
+
+    100% {
+        background-position: 1% 0%;
+    }
+}
+
+@keyframes flare {
+    0% {
+        opacity: 0.4;
+        transform: skewX(-30deg);
+    }
+
+    /*
+    20% {
+        opacity: 0.2;
+    }
+    */
+
+    85% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0.2;
+        transform: translateX(1500%) skewX(-30deg);
+        transition: 0.7s;
+    }
+}
+
+@keyframes movingColors {
+    100% {
+        transform: translateX(0%) skew(-5deg, 5deg);
+        transition: 0.7s;
+    }
+
+    50% {
+        transform: translateX(-15%) skew(-5deg, 0deg);
+        transition: 0.7s;
+    }
+
+    100% {
+        transform: translateX(-15%) translateY(-15%) skew(-5deg, -5deg);
+        transition: 0.7s;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(0.85);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}

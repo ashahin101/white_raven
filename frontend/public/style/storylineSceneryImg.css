@@ -1,0 +1,41 @@
+/*
+    ** Story line Scenery Image Style **
+    1. Image base style.
+    2. Make sure image clipping sizes is reasonable and appealing
+    for different screen sizes.
+*/
+
+@import "sceneryImgAnimation.css";
+
+
+
+#storylineSceneryImg, .storylineImgLoader {
+    width: 100%;
+    max-width: 650px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+
+#storylineSceneryImg {
+    background-image: url('../public/images/fallback.jpg');
+    box-shadow: inset 0px -4px 7px 4px rgba(0, 0, 0, 0.457),
+        inset 0px 0px 1px 1px rgba(0, 0, 0, 0.457);
+    border-radius: 0.25rem;
+}
+
+
+@media (min-width: 576px) {
+    #storylineSceneryImg, .storylineImgLoader {
+        height: 500px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #storylineSceneryImg, .storylineImgLoader {
+        height: 400px;
+    }
+}
