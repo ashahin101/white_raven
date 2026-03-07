@@ -8,6 +8,8 @@ import {
   Canonical,
   TopicNode,
   SceneId,
+  StoryNodeOptionKey,
+  StoryTopicNodeOption,
   // ChapterId,
   // TopicId,
   // StoryNodeId,
@@ -17,7 +19,7 @@ import {
 // a normalized data format that maps the story nodes into the story tree scenes
 export function canonicalNormalizer(
   tree: StoryTree,
-  books: { [K: StoryId]: Storybook },
+  books: Record<StoryId, Storybook>,
 ): Canonical {
   // const firstScene = getFirstScene(tree, tree.meta.start);
 
@@ -79,7 +81,10 @@ export function canonicalNormalizer(
           };
 
           // Choices & Options level:
-          const enhancedStoryNodeOptions = Object.fromEntries(
+          const enhancedStoryNodeOptions: Record<
+            StoryNodeOptionKey,
+            StoryTopicNodeOption
+          > = Object.fromEntries(
             Object.entries(storyNode.options).map(([optionKey, optionObj]) => {
               let target;
               const isChapterEnd = sceneOptions[optionKey] === 'END';
