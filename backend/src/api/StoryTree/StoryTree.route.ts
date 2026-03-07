@@ -1,5 +1,5 @@
 import { json, Router } from 'express';
-import * as handlers from './StoryTree.handler';
+import * as handlers from './StoryTree.handler.js';
 
 const storyTreeRouter: Router = Router();
 

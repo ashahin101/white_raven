@@ -1,5 +1,5 @@
 import { json, Router } from 'express';
-import * as handlers from './Storybook.handler';
+import * as handlers from './Storybook.handler.js';
 
 const storybookRouter: Router = Router();
 

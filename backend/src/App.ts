@@ -1,9 +1,9 @@
 import express, { NextFunction, Request, Response, Application } from 'express';
-import storybookRouter from './api/Storybook/Storybook.route';
-import storyTreeRouter from './api/StoryTree/StoryTree.route';
-import personalityRouter from './api/Personality/Personality.route';
+import storybookRouter from './api/Storybook/Storybook.route.js';
+import storyTreeRouter from './api/StoryTree/StoryTree.route.js';
+import personalityRouter from './api/Personality/Personality.route.js';
 import cors from 'cors';
-import canonicalRouter from './api/Canonical/Canonical.route';
+import canonicalRouter from './api/Canonical/Canonical.route.js';
 
 export class App {
   private app = express();

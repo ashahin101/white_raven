@@ -1,5 +1,5 @@
 import { json, Router } from 'express';
-import * as handlers from './Canonical.handler';
+import * as handlers from './Canonical.handler.js';
 
 const canonicalRouter: Router = Router();
 

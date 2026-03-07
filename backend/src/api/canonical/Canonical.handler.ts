@@ -8,7 +8,7 @@ import {
   Storybook,
   StoryId,
 } from '@shared/models';
-import { canonicalNormalizer } from './canonical';
+import { canonicalNormalizer } from './canonical.js';
 
 type StoryBooksDict = Record<StoryId, Storybook>;
 
