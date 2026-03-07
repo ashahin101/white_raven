@@ -48,10 +48,21 @@ export function Navbar() {
               <NavLink route="/story">Story</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink route="/about">About-Us</NavLink>
+              <NavLink route="/about">About</NavLink>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                href="https://illustrious-peak-4c2.notion.site/Contact-Us-3017eced98738059ac71da25023415f1"
+                target="_blank"
+              >
+                Contact
+              </a>
             </li>
           </ul>
-          <span className="navbar-text">Nexus | Interactive Fiction</span>
+          <span className="bg-secondary-subtle opacity-75 p-1 rounded text-body navbar-text">
+            © 2026 <strong>Abdallah Shahin</strong>. All rights reserved.
+          </span>
         </div>
       </div>
     </nav>
