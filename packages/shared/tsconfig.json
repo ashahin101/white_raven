@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ES2022",
+    "allowSyntheticDefaultImports": true,
     "module": "node16",
     "rootDir": "./",
     "outDir": "dist",

@@ -40,6 +40,7 @@
     "@eslint/js": "^9.39.3",
     "@jest/globals": "^30.2.0",
     "@types/node": "^24.11.0",
+    "uuid": "^13.0.0",
     "zod": "^4.3.6"
   },
   "homepage": "https://github.com/ashahin101/white_raven#readme",

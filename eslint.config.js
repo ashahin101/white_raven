@@ -13,6 +13,14 @@ export default defineConfig([
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
   },
   tseslint.configs.recommended,
+  // {
+  //   files: ['**/*.{tsx,ts,mts,cts}'],
+  //   plugins: { tseslint },
+  //   extends: [tseslint.configs.recommended],
+  //   rules: {
+  //     '@typescript-eslint:no-unused-vars': 'warn',
+  //   },
+  // },
   {
     files: ['**/*.json'],
     plugins: { json },
