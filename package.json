@@ -12,6 +12,10 @@
     "frontend",
     "packages/*"
   ],
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "dev:backend": "pnpm --filter backend run dev",

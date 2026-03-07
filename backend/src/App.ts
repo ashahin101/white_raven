@@ -28,7 +28,7 @@ export class App {
       },
     );
     if (port) {
-      this.app.listen(port, (error) => {
+      this.app.listen(port, (error: Error | undefined) => {
         if (error) console.log(error);
         console.log(`Server running on port:${port}`);
       });
