@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": "true",
   "scripts": {
-    "dev": "nodemon ./src/Server.ts",
+    "dev": "nodemon ./src/server.ts",
     "build": "tsc",
-    "start": "node dist/src/Server.js",
-    "start:dev": "ts-node ./src/Server.ts",
+    "start": "node dist/src/server.js",
+    "start:dev": "ts-node ./src/server.ts",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "test:watch": "set NODE_OPTIONS=--experimental-vm-modules jest --watch"
   },
