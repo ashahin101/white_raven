@@ -1,6 +1,6 @@
 import type { Route } from './+types/home';
 import { Link } from 'react-router';
-import 'public/style/home.css';
+import '../style/home.css';
 
 export function meta({}: Route.MetaArgs) {
   return [
