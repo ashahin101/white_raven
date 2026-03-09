@@ -1,0 +1,53 @@
+{
+  "version": "2.0.0",
+  "options": {
+    "shell": {
+      "executable": "cmd.exe",
+      "args": ["/d", "/c"]
+    }
+  },
+  "tasks": [
+    {
+      "label": "Build & Test Backend",
+      "type": "shell",
+      "command": "pnpm run build:backend && pnpm --filter backend run test",
+      "presentation": { "group": "full_test", "panel": "dedicated" }
+    },
+    {
+      "label": "Build Frontend",
+      "type": "shell",
+      "command": "pnpm --filter frontend run build",
+      "presentation": { "group": "full_test", "panel": "dedicated" }
+    },
+    {
+      "label": "Start Backend",
+      "type": "shell",
+      "command": "pnpm --filter backend run start",
+      "presentation": { "group": "full_test", "panel": "dedicated" }
+    },
+    {
+      "label": "Start Frontend",
+      "type": "shell",
+      "command": "pnpm --filter frontend run start",
+      "presentation": { "group": "full_test", "panel": "dedicated" }
+    },
+    {
+      "label": "Builds & Tests",
+      "dependsOrder": "sequence",
+      "dependsOn": ["Build & Test Backend", "Build Frontend"],
+      "presentation": { "reveal": "never" }
+    },
+    {
+      "label": "full_test",
+      "dependsOrder": "sequence",
+      "dependsOn": ["Builds & Tests", "Start Servers"],
+      "presentation": { "reveal": "never" }
+    },
+    {
+      "label": "Start Servers",
+      "dependsOrder": "parallel",
+      "dependsOn": ["Start Backend", "Start Frontend"],
+      "presentation": { "reveal": "never" }
+    }
+  ]
+}
