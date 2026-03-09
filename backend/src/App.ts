@@ -4,20 +4,14 @@ import storyTreeRouter from './api/StoryTree/StoryTree.route.js';
 import personalityRouter from './api/Personality/Personality.route.js';
 import cors from 'cors';
 import canonicalRouter from './api/Canonicals/Canonical.route.js';
+import 'dotenv/config';
 
 export class App {
   private app = express();
 
   startServer(port: number) {
-    // Protect server by only allowing certain origins
-    this.app.use(
-      cors({
-        origin: 'http://localhost:5173',
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
-      }),
-    );
-
+    console.log('FRONTEND_ORIGIN:', process.env.FRONTEND_ORIGIN);
+    this.setupCors();
     this.initRoutes();
 
     this.app.use(
@@ -35,6 +29,17 @@ export class App {
     }
   }
 
+  setupCors() {
+    // Protect server by only allowing certain origins
+    this.app.use(
+      cors({
+        origin: process.env.FRONTEND_ORIGIN,
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+      }),
+    );
+  }
+
   initRoutes() {
     this.app.use('/storybooks', storybookRouter);
     this.app.use('/story_trees', storyTreeRouter);
@@ -44,6 +49,7 @@ export class App {
 
   getExpressApp = (): Application => {
     // For app testing purposes
+    this.setupCors();
     this.initRoutes();
     return this.app;
   };

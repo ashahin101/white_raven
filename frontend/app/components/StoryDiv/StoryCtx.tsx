@@ -179,12 +179,9 @@ export const StoryCtxProvider = (props: PropsWithChildren) => {
       setLoaders((prev) => ({ ...prev, main: true }));
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_API_URL}/canonical/story_tree_a`,
+          `${import.meta.env.VITE_API_URL}canonical/story_tree_a`,
           {
             method: 'GET',
-            headers: {
-              'content-type': 'application/json',
-            },
           },
         );
         const jsonResult: StoryState['canonical'] = await res.json();
