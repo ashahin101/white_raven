@@ -15,7 +15,7 @@ The project explores how storytelling, decision systems, and personality modelin
 
 ---
 
-## 🎯 Why White Raven Is a Strong Skills Show Case
+### 🎯 Why White Raven Is a Strong Skills Show Case
 
 ### 1. It Solves a Real, Non-Trivial Problem
 Building an interactive branching narrative requires designing a **story tree data structure** that is both flexible and performant. This is a genuine engineering challenge — not a tutorial project.
