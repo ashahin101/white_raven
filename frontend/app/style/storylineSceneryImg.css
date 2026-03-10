@@ -21,7 +21,7 @@
 
 
 #storylineSceneryImg {
-    background-image: url('../public/images/fallback.jpg');
+    background-image: url('/media/images/fallback.jpg');
     box-shadow: inset 0px -4px 7px 4px rgba(0, 0, 0, 0.457),
         inset 0px 0px 1px 1px rgba(0, 0, 0, 0.457);
     border-radius: 0.25rem;

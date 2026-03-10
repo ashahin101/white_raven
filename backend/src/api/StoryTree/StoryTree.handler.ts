@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import story_trees from '../../mini-db/dummy-data/stories_trees.json';
 import { StoryTree, StoryTreeId } from '@shared/models/StoryTree.model';
 
-const STORY_TREES: { [K: StoryTreeId]: StoryTree } = story_trees;
+const STORY_TREES: Record<StoryTreeId, StoryTree> = story_trees;
 
 export function getAll(
   req: Request,

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import 'public/style/storylineSceneryImg.css';
+import '../../style/storylineSceneryImg.css';
 
 function loadNextSceneImage(
   newImgUrl: string,

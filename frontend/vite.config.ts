@@ -9,9 +9,8 @@ export default defineConfig({
       '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
     },
   },
-  root: path.resolve(__dirname, 'src'),
   server: {
-    // port: 3000,
+    port: 3000,
     // cors: {
     //   // the origin you will be accessing via browser
     //   origin: 'http://localhost:8081/',

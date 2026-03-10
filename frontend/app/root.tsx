@@ -9,8 +9,9 @@ import {
 import type { Route } from './+types/root';
 import './app.css';
 import 'bootstrap/scss/bootstrap.scss';
-import 'public/style/root.css';
+import './style/root.css';
 import Navbar from './components/Navbar/Navbar';
+import { useEffect } from 'react';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -26,9 +27,14 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    import(`bootstrap`);
+  }, []);
+
   return (
     <html lang="en">
       <head>
+        <title>White Raven</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Links />
@@ -36,7 +42,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <ScrollRestoration />
-        <script type="module" src="../public/js/main.js"></script>
         <Scripts />
       </body>
     </html>

@@ -1,7 +1,8 @@
-import app from './App';
+// Load environment variables from .env file
+import 'dotenv/config';
+import app from './App.js';
 
-const PORT = 8081;
-
+const PORT = process.env.PORT ? Number.parseInt(process.env.PORT) : 8081;
 app.startServer(PORT);
 
 const signals = ['SIGINT', 'SIGTERM', 'SIGUSR2'];

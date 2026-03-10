@@ -14,9 +14,7 @@ export interface Storybook {
     tags: string[];
     description: string;
   };
-  nodes: {
-    [K: StoryNodeId]: StoryNode;
-  };
+  nodes: Record<StoryNodeId, StoryNode>;
 }
 
 export interface StoryNode {
@@ -25,9 +23,7 @@ export interface StoryNode {
   question?: string;
   storyline: string;
   scenery: string;
-  options: {
-    [K: StoryNodeOptionKey]: StoryNodeOption;
-  };
+  options: Record<StoryNodeOptionKey, StoryNodeOption>;
 }
 
 export interface StoryNodeOption {

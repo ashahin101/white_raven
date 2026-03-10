@@ -15,7 +15,7 @@
         "category": "E/I",
         "question": "You find it easy to introduce yourself to other people.",
         "storyline": "You were spawned as a train operator. Which train do you want to enter?",
-        "scenery": "public/images/trains.jpeg",
+        "scenery": "/images/trains.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -40,7 +40,7 @@
         "category": "E/I",
         "question": "You prefer to be in the center of attention.",
         "storyline": "While you were trying your best to focus on your job amidst the chaos, a group of angry-looking people came to ask when the train is going to reach a certain stop.",
-        "scenery": "public/images/trains.jpeg",
+        "scenery": "/images/trains.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -90,7 +90,7 @@
         "category": "E/I",
         "question": "You are comfortable with small talk and chatting with strangers.",
         "storyline": "While fixing some parts of the train, one of your coworkers asks if they can join you and help.",
-        "scenery": "public/images/trains.jpeg",
+        "scenery": "/images/trains.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -128,7 +128,7 @@
         "category": "P/J",
         "question": "You prefer to have a detailed schedule rather than a flexible one.",
         "storyline": "You find yourself in a huge jungle filled with tall trees and distant dinosaur roars. A glowing portal is visible ahead.",
-        "scenery": "public/images/dinosaur-jungle.jpeg",
+        "scenery": "/images/dinosaur-jungle.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -153,7 +153,7 @@
         "category": "P/J",
         "question": "You tend to make decisions spontaneously rather than following a strict plan.",
         "storyline": "The claw marks suggest danger nearby. You must decide how to move forward.",
-        "scenery": "public/images/dinosaur-jungle.jpeg",
+        "scenery": "/images/dinosaur-jungle.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -178,7 +178,7 @@
         "category": "P/J",
         "question": "You prefer to keep your options open rather than finalizing a decision early.",
         "storyline": "The ground shakes violently. A loud roar erupts behind you — closer than before.",
-        "scenery": "public/images/dinosaur-jungle.jpeg",
+        "scenery": "/images/dinosaur-jungle.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -203,7 +203,7 @@
         "category": "P/J",
         "question": "You prefer sticking to a plan rather than adapting on the fly.",
         "storyline": "The portal flickers unstably as heavy footsteps shake the ground behind you.",
-        "scenery": "public/images/dinosaur-jungle.jpeg",
+        "scenery": "/images/dinosaur-jungle.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -241,7 +241,7 @@
         "category": "S/N",
         "question": "You focus more on facts than ideas.",
         "storyline": "You discover a robot-creating machine. Your goal is to build a robot that helps with home chores.",
-        "scenery": "public/images/robot-machine.jpeg",
+        "scenery": "/images/robot-machine.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -266,7 +266,7 @@
         "category": "S/N",
         "question": "You are more inclined to use tried and true methods than experiment with new ones.",
         "storyline": "Your practical robot begins organizing chores throughout the house.",
-        "scenery": "public/images/robot-machine.jpeg",
+        "scenery": "/images/robot-machine.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -291,7 +291,7 @@
         "category": "S/N",
         "question": "You prefer concrete facts over abstract theories.",
         "storyline": "Your friendly robot hums tunes, comments on the mess, and moves freely between chores.",
-        "scenery": "public/images/robot-machine.jpeg",
+        "scenery": "/images/robot-machine.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -316,7 +316,7 @@
         "category": "S/N",
         "question": "You trust real experience over intuition.",
         "storyline": "A sudden problem occurs: the blender tips over, the cat runs wild, and lights flicker.",
-        "scenery": "public/images/robot-machine.jpeg",
+        "scenery": "/images/robot-machine.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -354,7 +354,7 @@
         "category": "T/F",
         "question": "You make decisions based on logic rather than emotions.",
         "storyline": "In the future, you are managing a growing company with your father and need to hire someone for a critical role.",
-        "scenery": "public/images/ceo.jpeg",
+        "scenery": "/images/ceo.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -379,7 +379,7 @@
         "category": "T/F",
         "question": "You value consistency and fairness over personal feelings.",
         "storyline": "Your company needs to launch an advertising campaign for a new product.",
-        "scenery": "public/images/ceo.jpeg",
+        "scenery": "/images/ceo.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -403,8 +403,8 @@
         "id": "story_d::T3",
         "category": "T/F",
         "question": "You find it easy to empathize with others’ feelings.",
-        "storyline": "You are deciding how to promote your product to the public.",
-        "scenery": "public/images/ceo.jpeg",
+        "storyline": "You are deciding how to promote your product to the .",
+        "scenery": "/images/ceo.jpeg",
         "options": {
           "A": {
             "key": "A",
@@ -429,7 +429,7 @@
         "category": "T/F",
         "question": "You prioritize harmony and other people’s feelings over strict logic.",
         "storyline": "A very angry client contacts you about a serious problem with an important project.",
-        "scenery": "public/images/ceo.jpeg",
+        "scenery": "/images/ceo.jpeg",
         "options": {
           "A": {
             "key": "A",

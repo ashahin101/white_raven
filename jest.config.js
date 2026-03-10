@@ -8,4 +8,8 @@ export default {
   transform: {
     ...tsJestTransformCfg,
   },
+  moduleNameMapper: {
+    // Redirect .js imports to .ts source files for Jest
+    '^(\\.{1,2}/.*)\\.js$': '$1',
+  },
 };

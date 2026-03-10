@@ -12,7 +12,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function About() {
   return (
-    <div className="p-3">
+    <div className="p-3 container">
       <h4>About White Raven</h4>
 
       <p>
@@ -50,16 +50,57 @@ export default function About() {
         The project explores how storytelling, decision systems, and personality
         modeling can be combined into an interactive narrative experience.
       </p>
+      <hr />
+      <section>
+        <h5>Why White Raven Is a Strong Skills Showcase</h5>
+
+        <strong>1. It Solves a Real, Non-Trivial Problem</strong>
+        <p>
+          Building an interactive branching narrative requires designing a
+          <strong>{` story tree data structure `}</strong>that is both flexible
+          and performant. This is a genuine engineering challenge — not a
+          tutorial project.
+        </p>
+
+        <strong>2. It Demonstrates Product Thinking</strong>
+        <p>
+          White Raven isn't just technically functional — it has a
+          <strong>{` user experience goal:`}</strong> to entertain, engage, and
+          deliver a meaningful personality result. This shows the ability to
+          think beyond code and consider the end user.
+        </p>
+
+        <strong>3. It Is Publicly Deployable and Shareable</strong>
+        <p>
+          A live, working application is far more compelling in a portfolio or
+          interview than a GitHub repo alone. White Raven can be demoed in
+          real-time, which is a powerful differentiator.
+        </p>
+
+        <strong>4. It Covers the Full Engineering Lifecycle</strong>
+        <p>
+          From designing data structures → building APIs → crafting UI
+          components → deploying to the cloud, White Raven demonstrates
+          ownership of the
+          <strong>{` entire software development lifecycle`}</strong>.
+        </p>
+
+        <strong>5. It Shows Creative Initiative</strong>
+        <p>
+          Taking a personal creative idea — interactive fiction with personality
+          modeling — and engineering it into a working product signals
+          self-motivation, curiosity, and the ability to drive projects
+          independently.
+        </p>
+      </section>
+      <hr />
       <div className="mb-3 p-3 border border-secondary-subtle rounded">
         <p className="m-0">
-          Developed by <strong>Abdallah Shahin</strong>.
+          Developed by<strong>{` Abdallah Shahin`}</strong>.
           <br />
           <a href="https://github.com/ashahin101">Github: ashahin101</a>
           <br />
-          <a
-            href="https://illustrious-peak-4c2.notion.site/A-Shahin-Home-3017eced98738006ac8dd9ac809de8e4?source=copy_link"
-            target="_blank"
-          >
+          <a href="https://github.com/ashahin101/white_raven" target="_blank">
             {'White Raven Sourcecode'}
           </a>
           <br />

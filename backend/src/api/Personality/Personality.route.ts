@@ -1,7 +1,7 @@
 import { json, Router } from 'express';
-import * as handlers from './Personality.handler';
+import * as handlers from './Personality.handler.js';
 
-const personalityRouter = Router();
+const personalityRouter: Router = Router();
 
 personalityRouter.use(json());
 

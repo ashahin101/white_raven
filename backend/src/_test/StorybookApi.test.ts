@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { expressApp as app } from '../App';
+import { expressApp as app } from '../App.js';
 import { describe, it, expect } from '@jest/globals';
 
 describe('GET /storybooks', () => {

@@ -7,6 +7,9 @@ import {
   StoryBranchId,
   Canonical,
   TopicNode,
+  SceneId,
+  StoryNodeOptionKey,
+  StoryTopicNodeOption,
   // ChapterId,
   // TopicId,
   // StoryNodeId,
@@ -16,7 +19,7 @@ import {
 // a normalized data format that maps the story nodes into the story tree scenes
 export function canonicalNormalizer(
   tree: StoryTree,
-  books: { [K: StoryId]: Storybook },
+  books: Record<StoryId, Storybook>,
 ): Canonical {
   // const firstScene = getFirstScene(tree, tree.meta.start);
 
@@ -53,29 +56,35 @@ export function canonicalNormalizer(
       };
 
       // Story Nodes, Scenes & Topics level:
-      Object.entries(branchObj.scenes).map(([sceneId, sceneOptions]) => {
-        const [storyName, nodeId] = sceneId.split('::');
-        const storybook = books[storyName];
-        const storyNode = storybook.nodes[`${storyName}::${nodeId}`];
+      Object.entries(branchObj.scenes).map(
+        ([sceneId, sceneOptions]: [
+          sceneId: string,
+          sceneOptions: Record<string, SceneId | 'END'>,
+        ]) => {
+          const [storyName, nodeId] = sceneId.split('::');
+          const storybook = books[storyName];
+          const storyNode = storybook.nodes[`${storyName}::${nodeId}`];
 
-        const topicId = uuid();
-        // topicsIdsMap.set(topicId, nodeId);
+          const topicId = uuid();
+          // topicsIdsMap.set(topicId, nodeId);
 
-        const topic = {
-          meta: {
-            id: topicId,
-            storybookId: storybook.meta.id,
-            storyTreeId,
-            branchId,
-            nodeId,
-          },
-          // Dangerous use of 'as'
-          topicNode: storyNode as TopicNode,
-        };
-        console.log('Buggy', storyName, nodeId, topic, storyNode);
-        try {
+          const topic = {
+            meta: {
+              id: topicId,
+              storybookId: storybook.meta.id,
+              storyTreeId,
+              branchId,
+              nodeId,
+            },
+            // Dangerous use of 'as'
+            topicNode: storyNode as TopicNode,
+          };
+
           // Choices & Options level:
-          const enhancedStoryNodeOptions = Object.fromEntries(
+          const enhancedStoryNodeOptions: Record<
+            StoryNodeOptionKey,
+            StoryTopicNodeOption
+          > = Object.fromEntries(
             Object.entries(storyNode.options).map(([optionKey, optionObj]) => {
               let target;
               const isChapterEnd = sceneOptions[optionKey] === 'END';
@@ -100,12 +109,10 @@ export function canonicalNormalizer(
           );
 
           topic.topicNode.options = enhancedStoryNodeOptions;
-        } catch (error) {
-          console.log('Buggy error', error);
-        }
 
-        canonical.topics[sceneId] = topic;
-      });
+          canonical.topics[sceneId] = topic;
+        },
+      );
     },
   );
 

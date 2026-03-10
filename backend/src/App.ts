@@ -1,23 +1,17 @@
-import express, { NextFunction, Request, Response } from 'express';
-import storybookRouter from './api/Storybook/Storybook.route';
-import storyTreeRouter from './api/StoryTree/StoryTree.route';
-import personalityRouter from './api/Personality/Personality.route';
+import express, { NextFunction, Request, Response, Application } from 'express';
+import storybookRouter from './api/Storybook/Storybook.route.js';
+import storyTreeRouter from './api/StoryTree/StoryTree.route.js';
+import personalityRouter from './api/Personality/Personality.route.js';
 import cors from 'cors';
-import canonicalRouter from './api/Canonical/Canonical.route';
+import canonicalRouter from './api/Canonicals/Canonical.route.js';
+import 'dotenv/config';
 
 export class App {
   private app = express();
 
   startServer(port: number) {
-    // Protect server by only allowing certain origins
-    this.app.use(
-      cors({
-        origin: 'http://localhost:5173',
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
-      }),
-    );
-
+    console.log('FRONTEND_ORIGIN:', process.env.FRONTEND_ORIGIN);
+    this.setupCors();
     this.initRoutes();
 
     this.app.use(
@@ -28,11 +22,22 @@ export class App {
       },
     );
     if (port) {
-      this.app.listen(port, (error) => {
+      this.app.listen(port, (error: Error | undefined) => {
         if (error) console.log(error);
         console.log(`Server running on port:${port}`);
       });
     }
+  }
+
+  setupCors() {
+    // Protect server by only allowing certain origins
+    this.app.use(
+      cors({
+        origin: process.env.FRONTEND_ORIGIN,
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+      }),
+    );
   }
 
   initRoutes() {
@@ -42,9 +47,12 @@ export class App {
     this.app.use('/canonical', canonicalRouter);
   }
 
-  getExpressApp() {
+  getExpressApp = (): Application => {
+    // For app testing purposes
+    this.setupCors();
+    this.initRoutes();
     return this.app;
-  }
+  };
 }
 
 const app = new App();

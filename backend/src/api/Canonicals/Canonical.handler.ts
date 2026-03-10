@@ -1,13 +1,18 @@
 import { NextFunction, Request, Response } from 'express';
 import storybooks from '../../mini-db/dummy-data/storybooks.json';
-import { Storybook, StoryId } from '@shared/models/Storybook.model';
 import story_trees from '../../mini-db/dummy-data/stories_trees.json';
-import { StoryTree, StoryTreeId } from '@shared/models/StoryTree.model';
-import { Canonical } from '@shared/models/Canonical.model';
-import { canonicalNormalizer } from './canonical';
+import {
+  Canonical,
+  StoryTree,
+  StoryTreeId,
+  Storybook,
+  StoryId,
+} from '@shared/models';
+import { canonicalNormalizer } from './canonical.js';
+
 type StoryBooksDict = Record<StoryId, Storybook>;
 
-const STORY_TREES: { [K: StoryTreeId]: StoryTree } = story_trees;
+const STORY_TREES: Record<StoryTreeId, StoryTree> = story_trees;
 const STORYBOOKS: StoryBooksDict = storybooks;
 
 export function getByStoryTreeId(
