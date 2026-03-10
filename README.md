@@ -11,7 +11,7 @@ White Raven was created for two main purposes:
 
 The project explores how storytelling, decision systems, and personality modeling can be combined into an interactive narrative experience.
 
-
+>You can checkout the live app at: [https://white-raven-frontend.onrender.com/](https://white-raven-frontend.onrender.com/)
 
 ---
 
