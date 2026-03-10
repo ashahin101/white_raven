@@ -11,6 +11,27 @@ White Raven was created for two main purposes:
 
 The project explores how storytelling, decision systems, and personality modeling can be combined into an interactive narrative experience.
 
+
+
+---
+
+## 🎯 Why White Raven Is a Strong Skills Show Case
+
+### 1. It Solves a Real, Non-Trivial Problem
+Building an interactive branching narrative requires designing a **story tree data structure** that is both flexible and performant. This is a genuine engineering challenge — not a tutorial project.
+
+### 2. It Demonstrates Product Thinking
+White Raven isn't just technically functional — it has a **user experience goal**: to entertain, engage, and deliver a meaningful personality result. This shows the ability to think beyond code and consider the end user.
+
+### 3. It Is Publicly Deployable and Shareable
+A live, working application is far more compelling in a portfolio or interview than a GitHub repo alone. White Raven can be demoed in real-time, which is a powerful differentiator.
+
+### 4. It Covers the Full Engineering Lifecycle
+From designing data structures → building APIs → crafting UI components → deploying to the cloud, White Raven demonstrates ownership of the **entire software development lifecycle**.
+
+### 5. It Shows Creative Initiative
+Taking a personal creative idea — interactive fiction with personality modeling — and engineering it into a working product signals self-motivation, curiosity, and the ability to drive projects independently.
+
 ---
 
 Developed by **Abdallah Shahin**
