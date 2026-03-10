@@ -38,6 +38,6 @@ Taking a personal creative idea — interactive fiction with personality modelin
 
 Developed by **Abdallah Shahin**
 [Github: ashahin101](https://github.com/ashahin101) -
-[White Raven Sourcecode](https://illustrious-peak-4c2.notion.site/A-Shahin-Home-3017eced98738006ac8dd9ac809de8e4?source=copy_link) -
+[White Raven Sourcecode](https://github.com/ashahin101/white_raven) -
 [My Portfolio](https://illustrious-peak-4c2.notion.site/A-Shahin-Home-3017eced98738006ac8dd9ac809de8e4?source=copy_link) -
 [Contact Us](https://illustrious-peak-4c2.notion.site/Contact-Us-3017eced98738059ac71da25023415f1)
